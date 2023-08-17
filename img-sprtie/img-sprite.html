@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sprite img</title>
+    <style>
+      a{
+        display: inline-block;
+        position: relative;
+        padding: 10px 10px 10px 45px;
+        border: 1px solid #bdbdbd;
+        border-radius: 10px;
+        text-decoration: none;
+        color: inherit;
+      }
+      a::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background: url("img/sprites.png") no-repeat;
+        width: 30px;
+        height: 30px;
+      }
+      .naver1::after{
+        background-position: 0px 0px;
+        background-size: 67px 67px;
+      }
+      .naver2::after{
+        background-position: -37px 0px;
+        background-size: 67px 67px;
+      }
+      .naver3::after{
+        background-position: 0px -37px;
+        background-size: 67px 67px;
+      }
+      .naver4::after{
+        background-position: -37px -37px;
+        background-size: 67px 67px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="naver1">네이버 1</a>
+    <a href="#" class="naver2">네이버 2</a>
+    <a href="#" class="naver3">네이버 3</a>
+    <a href="#" class="naver4">네이버 4</a>
+  </body>
+</html>

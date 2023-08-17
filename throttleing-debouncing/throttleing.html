@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 10000px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      let timer;
+      function throttling(cb, time) {
+          if (!timer) {
+            timer = setTimeout(function () {
+              timer = null;
+              cb();
+            }, time);
+          }
+      }
+
+      window.addEventListener(
+        "scroll",
+        ()=>throttling(() => console.log("스크롤 발생"), 1000)
+      );
+    </script>
+  </body>
+</html>

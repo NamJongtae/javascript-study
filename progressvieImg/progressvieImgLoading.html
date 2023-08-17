@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #progressiveImg {
+        max-width: 500px;
+        height: 300px;
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="progressiveImg" alt="lake" />
+
+    <script>
+      const img = document.querySelector("#progressiveImg");
+      ProgressiveImg(
+        img,
+        "https://cdn.pixabay.com/photo/2023/06/17/20/15/lake-8070741_1280.png",
+        "https://via.placeholder.com/500x300",
+        "https://via.placeholder.com/500x300"
+      );
+
+      function ProgressiveImg(targetImg, src, placeholderSrc, errorImgSrc) {
+        targetImg.src = placeholderSrc;
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          targetImg.src = src;
+        };
+        img.onerror = () => {
+          targetImg.src = errorImgSrc;
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>img lazy-loading</title>
+    <style>
+      img {
+        background: #d5d9da;
+        width: 500px;
+        height: 500px;
+        display: block;
+        margin: 10px auto;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2016/12/11/12/02/mountains-1899264_1280.jpg"
+    />
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2017/04/09/09/56/avenue-2215317_1280.jpg"
+    />
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2016/09/19/07/01/lake-1679708_1280.jpg"
+    />
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2017/12/29/18/47/mountains-3048299_1280.jpg"
+    />
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2013/06/12/22/20/mountains-139012_1280.jpg"
+    />
+    <img
+      class="lazy-loading"
+      data-src="https://cdn.pixabay.com/photo/2012/10/30/15/55/valley-63564_1280.jpg"
+    />
+    <script>
+      // lazy-loading 이미지 요소 
+      const imgs = document.querySelectorAll(".lazy-loading");
+
+      const observerCallback = (entries, observer) => {
+        entries.forEach(({ isIntersecting, intersectionRatio, target }) => {
+          if (isIntersecting && intersectionRatio > 0) {
+            // 이미지 요소가 탐색 되었을때 이미지를 불러옴
+            target.src = target.dataset.src;
+            // 이미지를 불러온 이후 lazy-loading 제거
+            target.classList.remove("lazy-loading");
+            observer.unobserve(target);
+          }
+        });
+      };
+
+      // Observer 생성
+      const io = new IntersectionObserver(observerCallback);
+      // lazy-loading 이미지 요소에 obersever 적용
+      imgs.forEach((img) => io.observe(img));
+    </script>
+  </body>
+</html>
