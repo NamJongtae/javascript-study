@@ -1,0 +1,47 @@
+.main {
+  margin-top: 20px;
+  min-height: calc(100% - 58px);
+  position: relative;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.main-content > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.main-content > ul > li {
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 400px;
+  box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.main-content > ul > li:hover {
+  transform: scale(1.05);
+}
+
+.main-content h3 {
+  color: #000;
+}
+
+.main-content span {
+  color: #ccc;
+}
+
+.main-content img {
+  max-width: 100%;
+}

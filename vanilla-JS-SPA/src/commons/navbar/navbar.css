@@ -1,0 +1,18 @@
+.navbar {
+  background-color: rgb(53, 52, 49);
+  padding: 20px 0;
+  color: #fff;
+}
+
+.navbar > ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar > ul > li:hover {
+  color: rgb(163, 170, 170);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
